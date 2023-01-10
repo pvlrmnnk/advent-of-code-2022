@@ -1,0 +1,43 @@
+linters:
+  enable-all: true
+  disable:
+    # deprecated
+    - exhaustivestruct
+    - golint
+    - ifshort
+    - scopelint
+    - maligned
+    - interfacer
+    - deadcode
+    - structcheck
+    - nosnakecase
+    - varcheck
+
+    # 1.18+
+    # https://github.com/golangci/golangci-lint/issues/2649
+    - rowserrcheck
+    - sqlclosecheck
+    - wastedassign
+
+    # useless
+    - gomnd # magic numbers are ok
+    - testpackage # no need for separate test package
+    - wsl # whitespaces are too opinonated
+    - forcetypeassert # i know what i'm doing
+    - funlen # i'm ok, because it's easier to wrap all in one function
+    - nonamedreturns # it's ok, i know what i'm doing
+    - godot # i couldn't care less
+    - paralleltest # it's ok to test sequentially
+
+linters-settings:
+  varnamelen:
+    ignore-names:
+      # common names for iterators
+      - i
+      - j
+
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - varnamelen
