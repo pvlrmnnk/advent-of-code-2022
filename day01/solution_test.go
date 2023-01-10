@@ -1,30 +1,26 @@
 package day01
 
 import (
-	"io"
 	"os"
-	"strconv"
 	"testing"
 
 	"github.com/stretchr/testify/require"
 )
 
-func TestSolution(t *testing.T) {
-	input, err := os.Open("testdata/calories.input")
+func TestSolutionPt1(t *testing.T) {
+	const CaloriesTOP1 = 75501
+	input, err := os.Open("testdata/input.txt")
 	require.NoError(t, err)
 	defer input.Close()
-	golden, err := os.Open("testdata/calories.golden")
-	require.NoError(t, err)
-	defer golden.Close()
 
-	require.Equal(t, expextedResult(t, golden), Solution(input))
+	require.Equal(t, CaloriesTOP1, SolutionPt1(input))
 }
 
-func expextedResult(t *testing.T, golden io.Reader) int {
-	t.Helper()
+func TestSolutionPt2(t *testing.T) {
+	const CaloriesTOP3 = 215594
+	input, err := os.Open("testdata/input.txt")
+	require.NoError(t, err)
+	defer input.Close()
 
-	b, _ := io.ReadAll(golden)
-	i, _ := strconv.Atoi(string(b))
-
-	return i
+	require.Equal(t, CaloriesTOP3, SolutionPt2(input))
 }
