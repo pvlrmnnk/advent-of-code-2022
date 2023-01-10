@@ -21,6 +21,7 @@ func SolutionPt1(input io.Reader) int {
 				max = totalPerElf
 			}
 			totalPerElf = 0
+
 			continue
 		}
 		calories, _ := strconv.Atoi(line)
@@ -42,6 +43,7 @@ func (h *IntHeap) Pop() any {
 	n := len(old)
 	x := old[n-1]
 	*h = old[0 : n-1]
+
 	return x
 }
 
@@ -50,21 +52,22 @@ func (h *IntHeap) Pop() any {
 func SolutionPt2(input io.Reader) int {
 	scanner := bufio.NewScanner(input)
 
-	h := &IntHeap{}
-	heap.Init(h)
+	caloriesMaxHeap := &IntHeap{}
+	heap.Init(caloriesMaxHeap)
 	var totalPerElf int
 	for scanner.Scan() {
 		line := scanner.Text()
 		if line == "" {
 			// empty line is elf separator
 			// that means we successfully calculate total calories per elf
-			heap.Push(h, totalPerElf)
+			heap.Push(caloriesMaxHeap, totalPerElf)
 			totalPerElf = 0
+
 			continue
 		}
 		calories, _ := strconv.Atoi(line)
 		totalPerElf += calories
 	}
 
-	return heap.Pop(h).(int) + heap.Pop(h).(int) + heap.Pop(h).(int)
+	return heap.Pop(caloriesMaxHeap).(int) + heap.Pop(caloriesMaxHeap).(int) + heap.Pop(caloriesMaxHeap).(int)
 }
