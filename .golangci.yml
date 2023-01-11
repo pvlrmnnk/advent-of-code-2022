@@ -28,6 +28,8 @@ linters:
     - nonamedreturns # it's ok, i know what i'm doing
     - godot # i couldn't care less
     - paralleltest # it's ok to test sequentially
+    - tparallel # same
+    - wrapcheck # i'm ok with unwrapped errors
 
 linters-settings:
   varnamelen:
@@ -35,6 +37,8 @@ linters-settings:
       # common names for iterators
       - i
       - j
+      # common for readers or runes
+      - r
 
 issues:
   exclude-rules:
