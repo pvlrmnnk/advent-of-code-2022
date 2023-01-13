@@ -9,6 +9,7 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/pvlrmnnk/advent-of-code-2022/solution"
+	"github.com/pvlrmnnk/advent-of-code-2022/solution/day03"
 	"github.com/pvlrmnnk/advent-of-code-2022/solution/day04"
 )
 
@@ -35,12 +36,39 @@ func golden(t *testing.T, name string) solution.Result {
 }
 
 func TestSolution(t *testing.T) {
-	ss := []struct {
+	tcs := []struct {
 		name       string
 		solutionFn solution.Solution
 		inputName  string
 		goldenName string
 	}{
+		// day3
+		{
+			"day3 pt1 example input",
+			day03.SolutionPt1,
+			"day03/testdata/example.input.txt",
+			"day03/testdata/example_pt1.golden.txt",
+		},
+		{
+			"day3 pt1 my input",
+			day03.SolutionPt1,
+			"day03/testdata/my.input.txt",
+			"day03/testdata/my_pt1.golden.txt",
+		},
+		{
+			"day3 pt2 example input",
+			day03.SolutionPt2,
+			"day03/testdata/example.input.txt",
+			"day03/testdata/example_pt2.golden.txt",
+		},
+		{
+			"day3 pt2 my input",
+			day03.SolutionPt2,
+			"day03/testdata/my.input.txt",
+			"day03/testdata/my_pt2.golden.txt",
+		},
+
+		// day4
 		{
 			"day4 pt1 example input",
 			day04.SolutionPt1,
@@ -67,15 +95,15 @@ func TestSolution(t *testing.T) {
 		},
 	}
 
-	for _, s := range ss {
-		s := s
-		t.Run(s.name, func(t *testing.T) {
+	for _, tc := range tcs {
+		tc := tc
+		t.Run(tc.name, func(t *testing.T) {
 			t.Parallel()
 
-			in := input(t, s.inputName)
+			in := input(t, tc.inputName)
 			defer in.Close()
-			r := s.solutionFn(in)
-			er := golden(t, s.goldenName)
+			r := tc.solutionFn(in)
+			er := golden(t, tc.goldenName)
 			assert.Equal(t, er, r)
 		})
 	}

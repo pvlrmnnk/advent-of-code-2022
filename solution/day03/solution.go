@@ -2,7 +2,8 @@ package day03
 
 import (
 	"bufio"
-	"io"
+
+	"github.com/pvlrmnnk/advent-of-code-2022/solution"
 )
 
 // ascii codes from https://www.ascii-code.com/
@@ -19,7 +20,7 @@ func priority(r rune) int {
 	}
 }
 
-func SolutionPt1(input io.Reader) int {
+func SolutionPt1(input solution.Input) solution.Result {
 	scanner := bufio.NewScanner(input)
 
 	var sum int
@@ -43,7 +44,7 @@ func SolutionPt1(input io.Reader) int {
 		}
 	}
 
-	return sum
+	return solution.IntResult(sum)
 }
 
 func offset(r rune) int {
@@ -64,7 +65,7 @@ func priority2(mask uint64) int {
 	return offset2(mask)
 }
 
-func SolutionPt2(input io.Reader) int {
+func SolutionPt2(input solution.Input) solution.Result {
 	scanner := bufio.NewScanner(input)
 
 	var sum int
@@ -99,5 +100,5 @@ func SolutionPt2(input io.Reader) int {
 		}
 	}
 
-	return sum
+	return solution.IntResult(sum)
 }
