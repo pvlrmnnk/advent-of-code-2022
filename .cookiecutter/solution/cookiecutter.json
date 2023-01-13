@@ -1,0 +1,4 @@
+{
+    "day": 0,
+    "solution_package": "day{{ cookiecutter.day.rjust(2, '0') }}"
+}
