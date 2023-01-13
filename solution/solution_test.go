@@ -9,6 +9,7 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/pvlrmnnk/advent-of-code-2022/solution"
+	"github.com/pvlrmnnk/advent-of-code-2022/solution/day01"
 	"github.com/pvlrmnnk/advent-of-code-2022/solution/day02"
 	"github.com/pvlrmnnk/advent-of-code-2022/solution/day03"
 	"github.com/pvlrmnnk/advent-of-code-2022/solution/day04"
@@ -43,6 +44,20 @@ func TestSolution(t *testing.T) {
 		inputName  string
 		goldenName string
 	}{
+		// day1
+		{
+			"day01 pt1 my input",
+			day01.SolutionPt1,
+			"day01/testdata/my.input.txt",
+			"day01/testdata/my_pt1.golden.txt",
+		},
+		{
+			"day01 pt2 my input",
+			day01.SolutionPt2,
+			"day01/testdata/my.input.txt",
+			"day01/testdata/my_pt2.golden.txt",
+		},
+
 		// day2
 		{
 			"day02 pt1 my input",

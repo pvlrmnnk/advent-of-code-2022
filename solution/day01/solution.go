@@ -3,12 +3,13 @@ package day01
 import (
 	"bufio"
 	"container/heap"
-	"io"
 	"strconv"
+
+	"github.com/pvlrmnnk/advent-of-code-2022/solution"
 )
 
 // get max amount of calories per elf
-func SolutionPt1(input io.Reader) int {
+func SolutionPt1(input solution.Input) solution.Result {
 	scanner := bufio.NewScanner(input)
 
 	var max, totalPerElf int
@@ -28,7 +29,7 @@ func SolutionPt1(input io.Reader) int {
 		totalPerElf += calories
 	}
 
-	return max
+	return solution.IntResult(max)
 }
 
 // heap implementation from https://pkg.go.dev/container/heap#example-package-IntHeap
@@ -49,7 +50,7 @@ func (h *IntHeap) Pop() any {
 
 // get max amount of calories by top3
 // this solution is based on max heap
-func SolutionPt2(input io.Reader) int {
+func SolutionPt2(input solution.Input) solution.Result {
 	scanner := bufio.NewScanner(input)
 
 	caloriesMaxHeap := &IntHeap{}
@@ -69,5 +70,7 @@ func SolutionPt2(input io.Reader) int {
 		totalPerElf += calories
 	}
 
-	return heap.Pop(caloriesMaxHeap).(int) + heap.Pop(caloriesMaxHeap).(int) + heap.Pop(caloriesMaxHeap).(int)
+	top3sum := heap.Pop(caloriesMaxHeap).(int) + heap.Pop(caloriesMaxHeap).(int) + heap.Pop(caloriesMaxHeap).(int)
+
+	return solution.IntResult(top3sum)
 }
