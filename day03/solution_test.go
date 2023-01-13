@@ -3,9 +3,10 @@ package day03
 import (
 	"testing"
 
-	"github.com/pvlrmnnk/advent-of-code-2022/common"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/pvlrmnnk/advent-of-code-2022/common"
 )
 
 func TestSolutionPt1(t *testing.T) {
