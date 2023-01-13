@@ -2,8 +2,9 @@ package day02
 
 import (
 	"bufio"
-	"io"
 	"strings"
+
+	"github.com/pvlrmnnk/advent-of-code-2022/solution"
 )
 
 const (
@@ -29,7 +30,7 @@ const (
 )
 
 //nolint:revive
-func SolutionPt1(input io.Reader) int {
+func SolutionPt1(input solution.Input) solution.Result {
 	scanner := bufio.NewScanner(input)
 
 	var score int
@@ -56,7 +57,7 @@ func SolutionPt1(input io.Reader) int {
 		}
 	}
 
-	return score
+	return solution.IntResult(score)
 }
 
 const (
@@ -100,7 +101,7 @@ func loss(figure string) string {
 }
 
 //nolint:revive
-func SolutionPt2(input io.Reader) int {
+func SolutionPt2(input solution.Input) solution.Result {
 	scanner := bufio.NewScanner(input)
 
 	var score int
@@ -134,5 +135,5 @@ func SolutionPt2(input io.Reader) int {
 		}
 	}
 
-	return score
+	return solution.IntResult(score)
 }

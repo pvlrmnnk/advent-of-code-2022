@@ -9,6 +9,7 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/pvlrmnnk/advent-of-code-2022/solution"
+	"github.com/pvlrmnnk/advent-of-code-2022/solution/day02"
 	"github.com/pvlrmnnk/advent-of-code-2022/solution/day03"
 	"github.com/pvlrmnnk/advent-of-code-2022/solution/day04"
 )
@@ -42,27 +43,41 @@ func TestSolution(t *testing.T) {
 		inputName  string
 		goldenName string
 	}{
+		// day2
+		{
+			"day02 pt1 my input",
+			day02.SolutionPt1,
+			"day02/testdata/my.input.txt",
+			"day02/testdata/my_pt1.golden.txt",
+		},
+		{
+			"day02 pt2 my input",
+			day02.SolutionPt2,
+			"day02/testdata/my.input.txt",
+			"day02/testdata/my_pt2.golden.txt",
+		},
+
 		// day3
 		{
-			"day3 pt1 example input",
+			"day03 pt1 example input",
 			day03.SolutionPt1,
 			"day03/testdata/example.input.txt",
 			"day03/testdata/example_pt1.golden.txt",
 		},
 		{
-			"day3 pt1 my input",
+			"day03 pt1 my input",
 			day03.SolutionPt1,
 			"day03/testdata/my.input.txt",
 			"day03/testdata/my_pt1.golden.txt",
 		},
 		{
-			"day3 pt2 example input",
+			"day03 pt2 example input",
 			day03.SolutionPt2,
 			"day03/testdata/example.input.txt",
 			"day03/testdata/example_pt2.golden.txt",
 		},
 		{
-			"day3 pt2 my input",
+			"day03 pt2 my input",
 			day03.SolutionPt2,
 			"day03/testdata/my.input.txt",
 			"day03/testdata/my_pt2.golden.txt",
@@ -70,25 +85,25 @@ func TestSolution(t *testing.T) {
 
 		// day4
 		{
-			"day4 pt1 example input",
+			"day04 pt1 example input",
 			day04.SolutionPt1,
 			"day04/testdata/example.input.txt",
 			"day04/testdata/example_pt1.golden.txt",
 		},
 		{
-			"day4 pt1 my input",
+			"day04 pt1 my input",
 			day04.SolutionPt1,
 			"day04/testdata/my.input.txt",
 			"day04/testdata/my_pt1.golden.txt",
 		},
 		{
-			"day4 pt2 example input",
+			"day04 pt2 example input",
 			day04.SolutionPt2,
 			"day04/testdata/example.input.txt",
 			"day04/testdata/example_pt2.golden.txt",
 		},
 		{
-			"day4 pt2 my input",
+			"day04 pt2 my input",
 			day04.SolutionPt2,
 			"day04/testdata/my.input.txt",
 			"day04/testdata/my_pt2.golden.txt",
