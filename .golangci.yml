@@ -30,6 +30,7 @@ linters:
     - paralleltest # it's ok to test sequentially
     - tparallel # same
     - wrapcheck # i'm ok with unwrapped errors
+    - ireturn # tired of this
 
 linters-settings:
   varnamelen:
@@ -39,6 +40,12 @@ linters-settings:
       - j
       # common for readers or runes
       - r
+  gci:
+    custom-order: true
+    sections:
+      - standard
+      - default
+      - prefix(github.com/pvlrmnnk/advent-of-code-2022)
 
 issues:
   exclude-rules:
