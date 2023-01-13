@@ -3,7 +3,6 @@ package solution_test
 import (
 	"io"
 	"os"
-	"strconv"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -22,7 +21,7 @@ func input(t *testing.T, name string) io.ReadCloser {
 	return input
 }
 
-func goldenInt(t *testing.T, name string) int {
+func golden(t *testing.T, name string) solution.Result {
 	t.Helper()
 
 	golden, err := os.Open(name)
@@ -32,10 +31,7 @@ func goldenInt(t *testing.T, name string) int {
 	b, err := io.ReadAll(golden)
 	require.NoError(t, err)
 
-	i, err := strconv.Atoi(string(b))
-	require.NoError(t, err)
-
-	return i
+	return solution.Result(string(b))
 }
 
 func TestSolution(t *testing.T) {
@@ -79,11 +75,8 @@ func TestSolution(t *testing.T) {
 			in := input(t, s.inputName)
 			defer in.Close()
 			r := s.solutionFn(in)
-			switch r := r.(type) { //nolint:gocritic
-			case solution.IntResult:
-				er := goldenInt(t, s.goldenName)
-				assert.Equal(t, er, r.Int())
-			}
+			er := golden(t, s.goldenName)
+			assert.Equal(t, er, r)
 		})
 	}
 }

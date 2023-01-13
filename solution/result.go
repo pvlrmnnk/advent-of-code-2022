@@ -1,15 +1,9 @@
 package solution
 
-type Result interface {
-	Value() any
-}
+import "strconv"
 
-type IntResult int
+type Result string
 
-func (r IntResult) Value() any {
-	return int(r)
-}
-
-func (r IntResult) Int() int {
-	return int(r)
+func IntResult(i int) Result {
+	return Result(strconv.Itoa(i))
 }
