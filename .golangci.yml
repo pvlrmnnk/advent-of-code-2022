@@ -31,6 +31,7 @@ linters:
     - tparallel # same
     - wrapcheck # i'm ok with unwrapped errors
     - ireturn # tired of this
+    - exhaustruct # no need for this
 
 linters-settings:
   varnamelen:
