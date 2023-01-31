@@ -16,6 +16,7 @@ import (
 	"github.com/pvlrmnnk/advent-of-code-2022/solution/day05"
 	"github.com/pvlrmnnk/advent-of-code-2022/solution/day06"
 	"github.com/pvlrmnnk/advent-of-code-2022/solution/day07"
+	"github.com/pvlrmnnk/advent-of-code-2022/solution/day08"
 )
 
 func input(t *testing.T, name string) io.ReadCloser {
@@ -178,6 +179,7 @@ func TestSolution(t *testing.T) {
 			"day06/testdata/my.input.txt",
 			"day06/testdata/my_pt2.golden.txt",
 		},
+
 		// day07
 		{
 			"day07 pt1 example input",
@@ -202,6 +204,14 @@ func TestSolution(t *testing.T) {
 			day07.SolutionPt2,
 			"day07/testdata/my.input.txt",
 			"day07/testdata/my_pt2.golden.txt",
+		},
+
+		// day08
+		{
+			"day08 pt1 example input",
+			day08.SolutionPt1,
+			"day08/testdata/example.input.txt",
+			"day08/testdata/example_pt1.golden.txt",
 		},
 	}
 
